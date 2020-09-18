@@ -1,6 +1,8 @@
 pipeline{
   agent none
   stages {
+    stage ('Dev') {
+      parallel {
     stage ('C') {
       agent {label 'C'}
       steps {
@@ -16,6 +18,8 @@ pipeline{
         git 'https://github.com/Anusha1913/JAVA1.git'
         sh 'mvn clean install'
         
+      }
+    }
       }
     }
   }
